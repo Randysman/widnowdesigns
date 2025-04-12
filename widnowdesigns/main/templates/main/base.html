@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,13 +6,39 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="shortcut icon" href="{% static 'static/img/icon.png' %}" type="image/x-icon"/>
+
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
+    <header class="header sticky-top">
+        <div class="header-container d-flex">
+            <navbar class="header-nav pt-4">
+                <ul class="header-list d-flex">
+                    <li>
+                        <a href="/" class="nav-a m-3">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-a m-3">Shop</a>
+                    </li>
+                </ul>
+            </navbar>
+            <div class="header-logo">
+                <a href="/"><img src="{% static 'img/icon.png' %}" alt="" class="heavy-logo"></a>
+            </div>
+                <div class="header-profile"></div>
+                    <a href="#" class="m-3">LOGIN</a>
+        </div>
+    </header>
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
 
+
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
