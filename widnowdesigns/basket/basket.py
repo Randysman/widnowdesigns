@@ -36,7 +36,7 @@ class Basket:
 
     def __iter__(self):
         product_ids = self.basket.keys()
-        products = Product.objects.filter(id_in=product_ids)
+        products = Product.objects.filter(id__in=product_ids)
         basket = self.basket.copy()
         for product in products:
             basket[str(product.id)]['product'] = product
@@ -52,3 +52,10 @@ class Basket:
 
     def clear(self):
         del self.session[settings.BASKET_SESSION_ID]
+
+
+    def get_total_price(self):
+        total = sum((Decimal(item['price']) - (Decimal(item['price'])
+                    * Decimal(item['product'].discount / 100))) * item['quantity']
+                    for item in self.basket.values())
+        return format(total, '.2f')

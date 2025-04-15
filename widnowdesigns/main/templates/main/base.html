@@ -19,7 +19,7 @@
             <navbar class="header-nav pt-4">
                 <ul class="header-list d-flex">
                     <li>
-                        <a href="/" class="nav-a m-3">Home</a>
+                        <a href="/" class="nav-a m-3">Главная</a>
                     </li>
                     <li>
                         <a href="/shop/" class="nav-a m-3">Магазин</a>
@@ -39,8 +39,19 @@
             <div class="header-logo">
                 <a href="/"><img src="{% static 'img/Pexay.png' %}" alt="" class="heavy-logo"></a>
             </div>
-                <div class="header-profile"></div>
-                    <a href="#" class="m-3">LOGIN</a>
+            <div class="header-profile pt-2">
+                <a href="{% url 'basket:basket_detail' %}"><img src="{% static 'img/basket-mini.png' %}" class="basket-logo" alt=""></a>
+                <a href="#" class="m-2">Войти</a>
+                <p class="basket-quantity">
+                    {% with basket_quantity=basket|length %}
+                        {% if basket_quantity > 0 %}
+                            {{ basket_quantity }}
+                        {% else %}
+                            0
+                        {% endif %}
+                    {% endwith %}
+                </p>
+            </div>
         </div>
     </header>
     <div class="container">
