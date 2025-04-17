@@ -10,7 +10,7 @@
         </div>
         <div class="home-recomendation">
             <div class="rec-title mb-4">
-                <h3><spa>Popular</spa></h3>
+                <h3><spa>Популярное</spa></h3>
             </div>
         </div>
         <div class="home-cards d-flex gap-4">
@@ -20,8 +20,8 @@
                     <h5 class="title-card">{{ product.name }}</h5>
                     {% if product.discount %}
                         <div class="cart-discount d-flex gap-2">
-                            <p class="line"> {{ product.price }}</p>
-                            <p>{{ product.sell_price }}</p>
+                            <p class="line"> {{ product.price }} р.</p>
+                            <p>{{ product.sell_price }} р.</p>
                         </div>
                     {% else %}
                         <p class="price">{{ product.price }}</p>
