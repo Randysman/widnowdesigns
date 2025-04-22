@@ -1,8 +1,11 @@
-from django.shortcuts import render
-from django.contrib import auth
+from django.shortcuts import render, redirect
+from django.contrib import auth, messages
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from .forms import UserLoginForm
+from .forms import UserLoginForm, UserRegistrationForm, ProfileForm
+from django.contrib.auth.decorators import login_required
+from django.db.models import Prefetch
+from orders.models import Order, OrderItem
 
 
 def login(request):
@@ -21,7 +24,7 @@ def login(request):
 
 
 def registration(request):
-    return render(request, 'users/register.html')
+    return render(request, 'users/registration.html')
 
 
 def profile(request):
