@@ -48,7 +48,7 @@
             <a href="/shop" class="basket-btn">Продолжить покупки</a>
                 {% with basket_quantity=basket|length %}
                     {% if basket_quantity > 0 %}
-                        <a href="#" class="basket-btn">Оформить заказ</a>
+                        <a href="{% url 'orders:order_create' %}" class="basket-btn">Оформить заказ</a>
                     {% endif %}
                 {% endwith %}
         </div>

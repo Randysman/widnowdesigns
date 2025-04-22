@@ -11,11 +11,11 @@ def order_create(request):
         if form.is_valid():
             order = form.save()
             for item in basket:
-                OrderItem.objects.create(order=order, product=item['product'], price=item['price'], quantity=['quantity'])
+                OrderItem.objects.create(order=order, product=item['product'], price=item['price'], quantity=item['quantity'])
             basket.clear()
             return render(request, 'order/created.html', {'order': order, 'form': form})
     else:
         form = OrderCreateForm(request=request)
-    return render(request, 'order/created.html', {'basket': basket, 'form':form})
+    return render(request, 'order/create.html', {'basket': basket, 'form':form})
 
 
