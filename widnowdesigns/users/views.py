@@ -24,6 +24,16 @@ def login(request):
 
 
 def registration(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.instance
+            auth.login(request, user)
+            messages.success(request, f'{user.username}, зарегистрирован')
+            return HttpResponseRedirect(reverse('user:login'))
+    else:
+        form = UserRegistrationForm()
     return render(request, 'users/registration.html')
 
 
