@@ -32,7 +32,6 @@ class ProfileForm(UserChangeForm):
         model = User
         fields = ('image', 'first_name', 'last_name', 'username', 'email')
 
-
         image = forms.ImageField(required=False)
         first_name = forms.CharField()
         last_name = forms.CharField()
