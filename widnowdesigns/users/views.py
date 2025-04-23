@@ -37,9 +37,21 @@ def registration(request):
     return render(request, 'users/registration.html')
 
 
+@login_required
 def profile(request):
-    return render(request, 'users/profile.html')
+    if request.method == 'POST':
+        form = ProfileForm(data=request.POST, instance=request.user,files=request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Профиль изменён')
+            return HttpResponseRedirect(reverse('user:profile'))
+    else:
+        form = ProfileForm(isinstance=request.user)
+    orders = Order.filter(user=request.user).prefetch_related(Prefetch('items',
+    queryset=OrderItem.objects.select_related('product'),)).order_by('-id')
+    return render(request, 'users/profile.html', {'form': form, 'orders': orders})
 
 
 def logout(request):
-    pass
+    auth.logout(request)
+    return redirect(reverse('main:product_list'))
