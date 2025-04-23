@@ -1,7 +1,51 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}Регистрация{% endblock title %}
+{% block title %}Процесс оплаты{% endblock title %}
 
 {% block content %}
+    <div class="window">
+        <h2 class="pay-title">
+            Оплата
+        </h2>
+        <div class="pay-card d-flex">
+            <div class="basket-cardsproc">
+                {% for item in order.items.all %}
+                    {% with product=item.product %}
+                        <div class="basket-card d-flex">
+                            <div class="basket-card-img">
+                                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/noimage.jpg' %}{% endif %}" alt="">
+                            </div>
+                            <div class="basket-card-info">
+                                <div class="basket-card-name">
+                                    <p>{{ product.name }}</p>
+                                </div>
+                                <div class="basket-card-q">
+                                    <p>Количество: {{ item.quantity }}</p>
+                                </div>
+                            </div>
+                            <form action="{% url 'basket_basket_remove' product.id %}" method="post">
+                                <input type="submit" value="Удалить" class="remove-btn">
+                                {% csrf_token %}
+                            </form>
+                            <div class="basket-card-price">
+                                {% if product.discount %}
+                                    <div class="basket-price">
+                                        <p class="line opac">{{ product.price }} р.</p>
+                                        <p class="basket-total-price-otc">{{ product.sell_price }} р.</p>
+                                    </div>
+                                {% else %}
+                                    <p class="basket-total-price">{{ product.price }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endwith %}
+                {% endfor %}
+                <form action="{% url 'payment:process' %}" method="post" class="payform">
+                    <input type="submit" value="Оплатить" class="paynow">
+                    {% csrf_token %}
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock content%}
