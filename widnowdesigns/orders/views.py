@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import OrderItem
+from django.urls import reverse
 from .forms import OrderCreateForm
 from basket.basket import Basket
 
@@ -11,9 +12,11 @@ def order_create(request):
         if form.is_valid():
             order = form.save()
             for item in basket:
-                OrderItem.objects.create(order=order, product=item['product'], price=item['price'], quantity=item['quantity'])
+                discounted_price = item['product'].sell_price()
+                OrderItem.objects.create(order=order, product=item['product'], price=discounted_price, quantity=item['quantity'])
             basket.clear()
-            return render(request, 'order/created.html', {'order': order, 'form': form})
+            request.session['order_id'] = order.id
+            return redirect(reverse('payment:process'))
     else:
         form = OrderCreateForm(request=request)
     return render(request, 'order/create.html', {'basket': basket, 'form':form})

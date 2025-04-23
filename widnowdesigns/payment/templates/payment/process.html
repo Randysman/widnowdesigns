@@ -24,7 +24,7 @@
                                     <p>Количество: {{ item.quantity }}</p>
                                 </div>
                             </div>
-                            <form action="{% url 'basket_basket_remove' product.id %}" method="post">
+                            <form action="{% url 'basket:basket_remove' product.id %}" method="post">
                                 <input type="submit" value="Удалить" class="remove-btn">
                                 {% csrf_token %}
                             </form>
