@@ -395,3 +395,39 @@ h5 {
 .add-to-basket-btn:hover {
     border: 1px solid #000;
 }
+
+.table-head {
+    border-bottom: 1px solid #fff;
+}
+
+.table-p {
+    background-color: #000;
+    color: #fff;
+    height: 100px;
+}
+
+.basket-item {
+    border-bottom: 1px solid #fff;
+    padding: 40px 0 40px 20px;
+}
+
+.c-item-img img {
+    width: 70px;
+    height: 100px;
+}
+
+c-quantity-form input {
+    width: 70px;
+    border-bottom: 1px solid #fff;
+    height: 35px;
+    color: #fff;
+}
+
+.c-item-total, .c-item-quantity, .c-item-price {
+    width: 120px;
+}
+
+.right-side-items {
+    text-align: right;
+}
+
