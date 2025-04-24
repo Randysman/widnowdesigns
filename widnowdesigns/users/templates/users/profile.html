@@ -5,9 +5,9 @@
 
 {% block content %}
     <div class="d-flex">
-        <div class="profile bg-white p-4 mb-4 mx-2 rounded">
-            <h2 class="mb-2">Профиль</h2>
+        <div class="windowp d-flex bg-white p-4 mb-4 mx-2 rounded">
             <form action="{% url 'users:profile' %}" method="post" enctype="multipart/form-data">
+                <h2 class="mb-2">Профиль</h2>
                 {% csrf_token %}
                 <div class="d-flex">
                     <div class="1box">
@@ -30,7 +30,7 @@
                             value=" {{ form.last_name.value }}" required>
                         </div>
                     </div>
-                    <div class="2box">
+                    <div class="box2">
                         <div class="col-md-12 mb-3">
                             <label for="id_username" class="form-label">Имя пользователя</label>
                             <input type="text" class="form-control form-styleprofile" id="id_username" name="username" placeholder="Имя пользователя"

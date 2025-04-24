@@ -487,3 +487,267 @@ c-quantity-form input {
 .price-on-card {
     padding-top: 5px;
 }
+
+.basket-cardsrem {
+    max-height: 52vh;
+    width: 600px;
+    overflow-y: auto;
+}
+
+.opac {
+    opacity: 0.5;
+    margin: 0;
+}
+
+.basket-total-price {
+    margin: 0;
+}
+
+.regform button {
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+.mainvl {
+    position: absolute;
+    height: 650px;
+    width: 1px;
+    background-color: #000000;
+    opacity: 0.2;
+    left: 18%;
+    top: 23%;
+}
+
+.notorders {
+    margin-left: 70px;
+    margin-top: 20px;
+}
+
+.next-btn {
+    position: absolute;
+    left: 41%;
+}
+
+.prev-btn {
+    position: absolute;
+    left: 8%;
+}
+
+.prev-btn: hover {
+    background-color: #00000013;
+}
+
+.next-btn:hover {
+    background-color: #00000013;
+}
+
+.prev-btn, .next-btn {
+    color: #000;
+    background-color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.image-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.orders-baskets {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.dadad {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.orders h2 {
+    margin-left: 60px;
+}
+
+.order-desc {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.order-title {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.order-basket {
+    width: 500px;
+    border: 1px solid #00000034;
+    border-radius: 5px;
+    background-color: #fff;
+    margin: 0;
+    transition: all 0.5s ease;
+    margin-bottom: 10px;
+}
+
+.order-basket:hover {
+    border: 1px solid #000000;
+}
+
+.orderss {
+    margin-left: 70px;
+    width: 520px;
+    max-height: 52vh;
+    overflow-y: auto;
+}
+
+.vl {
+    position: absolute;
+    width: 1px;
+    height: 500px;
+    background-color: #000000;
+    left: 32%;
+    top: 25%;
+    opacity: 0.2;
+}
+
+.payform {
+    position: fixed;
+    top: 75%;
+}
+
+.pay-card {
+    width: 600px;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.pay-title {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.paynow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 50px;
+    border: 1px solid #00000034;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+    background-color: #fff;
+}
+
+.paynow:hover {
+    border: 1px solid #000000;
+}
+
+.order-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 50px;
+    border: 1px solid #00000034;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+    background-color: #fff;
+}
+
+.order-btn:hover {
+    border: 1px solid #000000;
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-form input {
+    border-radius: 5px;
+    width: 250px;
+    height: 38px;
+    background-color: #fff;
+    box-shadow: none;
+    border: 1px solid #00000046;
+}
+
+.order-info {
+    margin-left: 40px;
+}
+
+.checkout {
+    margin-top: 70px;
+    width: 600px;
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    border: 1px solid #00000034;
+    border-radius: 5px;
+    margin: 0;
+    transition: all 0.5s ease;
+    background-color: #fff;
+}
+
+.profile-btn:hover {
+    border: 1px solid #000000;
+}
+
+.box2 {
+    margin-top: 212px;
+    margin-left: 20px;
+}
+
+.box22 {
+    margin-left: 20px;
+}
+
+.profile {
+    width: 570px;
+    height: 600px;
+    margin-top: 100px;
+    border: 1px solid #00000036;
+    border-radius: 10px;
+}
+
+.form-stylereg {
+    width: 250px;
+    margin-left: 20px;
+}
+
+.form-styleprofile {
+    width: 250px;
+}
+
+.login {
+    width: 400px;
+    height: 600px;
+    margin-top: 100px;
+    border: 1px solid #00000036;
+    border-radius: 10px;
+}
+
+.login-reg {
+    width: 600px;
+    height: 600px;
+    margin-top: 100px;
+    border: 1px solid #00000036;
+    border-radius: 10px;
+}
+
+.login-title h2{
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.se
