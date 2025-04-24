@@ -46,8 +46,8 @@ def profile(request):
             messages.success(request, 'Профиль изменён')
             return HttpResponseRedirect(reverse('user:profile'))
     else:
-        form = ProfileForm(isinstance=request.user)
-    orders = Order.filter(user=request.user).prefetch_related(Prefetch('items',
+        form = ProfileForm(instance=request.user)
+    orders = Order.objects.filter(user=request.user).prefetch_related(Prefetch('items',
     queryset=OrderItem.objects.select_related('product'),)).order_by('-id')
     return render(request, 'users/profile.html', {'form': form, 'orders': orders})
 
