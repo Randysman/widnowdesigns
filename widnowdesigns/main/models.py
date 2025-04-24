@@ -48,3 +48,12 @@ class Product(models.Model):
         indexes = [models.Index(fields=['id', 'slug']),
                    models.Index(fields=['name']),
                    models.Index(fields=['-created'])]
+
+
+class ProductImaga(models.Model):
+    product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
+
+
+    def __str__(self):
+        return f'{self.product.name} - {self.image.name}'
