@@ -4,30 +4,91 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <section class="home d-flex flex-column">
-        <div class="home-title d-flex flex-column align-items-center">
-            <a href="#" class="home-btn mt-4">ALL Products</a>
-        </div>
-        <div class="home-recomendation">
-            <div class="rec-title mb-4">
-                <h3><spa>Популярное</spa></h3>
+<body>
+
+<div class="title-block">
+    <h1>Цены на оконные конструкции Pexay</h1>
+    <p class="subtitle">Ниже представлены самые популярные продукты с ценами</p>
+</div>
+
+<div class="container">
+    <div class="row g-4 row-cols-1 row-cols-md-3">
+
+        <div class="col">
+            <div class="product-card" style="background-image: url('{% static 'img/okno1.jpg' %}')">
+                <div class="overlay">
+                    <h5>ДВУХСТВОРЧАТОЕ ОКНО</h5>
+                    <p>Профиль: <b>Pexay</b><br>
+                    Размер: <b>1400×1500<br></b>
+                    Материал: <b>ПВХ</b><br>
+                    Цена: <b>от 16 000 руб.</b></p>
+                </div>
             </div>
         </div>
-        <div class="home-cardss d-flex gap-4">
-            {% for product in products %}
-                <a href="{{ product.get_absolute_url }} " class="home-card d-flex flex-column align-items-center text-center">
-                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/noimage.jpg' %}{% endif %}" class="card-img" alt="">
-                    <h5 class="title-card">{{ product.name }}</h5>
-                    {% if product.discount %}
-                        <div class="cart-discount d-flex gap-2">
-                            <p class="line"> {{ product.price }} р.</p>
-                            <p class="price pt-2">{{ product.sell_price }} р.</p>
-                        </div>
-                    {% else %}
-                        <p class="price">{{ product.price }}</p>
-                    {% endif %}
-                </a>
-            {% endfor %}
+
+        <div class="col">
+            <div class="product-card" style="background-image: url('{% static 'img/okno2.jpg' %}')">
+                <div class="overlay">
+                    <h5>ТРЕХСТВОРЧАТОЕ ОКНО</h5>
+                    <p>Профиль: <b>Pexay</b><br>
+                    Размер: <b>1500×1900</b><br>
+                    Материал: <b>ПВХ</b><br>
+                    Цена: <b>от 22 000 руб.</b></p>
+                </div>
+            </div>
         </div>
-    </section>
+
+        <div class="col">
+            <div class="product-card" style="background-image: url('{% static 'img/balkon1.jpg' %}')">
+                <div class="overlay">
+                    <h5>П-ОБРАЗНЫЙ БАЛКОН</h5>
+                    <p>Профиль: <b>Pexay</b><br>
+                    Размер: <b>1400×1500 + (1400×700)×2</b><br>
+                    Материал: <b>ПВХ</b><br>
+                    Цена: <b>от 27 000 руб.</b></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="product-card" style="background-image: url('{% static 'img/balkon2.png' %}')">
+                <div class="overlay">
+                    <h5>УГЛОВОЙ БАЛКОН</h5>
+                    <p>Профиль: <b>Pexay</b><br>
+                    Размер: <b>(1400×1500)×2</b><br>
+                    Материал: <b>ПВХ</b><br>
+                    Цена: <b>от 32 000 руб.</b></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="product-card" style="background-image: url('{% static 'img/lodgiya.jpg' %}')">
+                <div class="overlay">
+                    <h5>ЛОДЖИЯ</h5>
+                    <p>Профиль: <b>Pexay</b><br>
+                    Размер: <b>1400×1500</b><br>
+                    Материал: <b>ПВХ</b><br>
+                    Цена: <b>от 21 000 руб.</b></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="product-card" style="background-image: url('{% static 'img/kabluj.jpg' %}')">
+                <div class="overlay">
+                    <h5>БАЛКОН ТИПА «КАБЛУК»</h5>
+                    <p>Профиль: <b>Pexay</b><br>
+                    Размер: <b>1400×1500 + (1400×700)×2</b><br>
+                    Материал: <b>ПВХ</b><br>
+                    Цена: <b>от 38 000 руб.</b></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
 {% endblock content %}
