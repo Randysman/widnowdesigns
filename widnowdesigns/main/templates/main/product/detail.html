@@ -44,8 +44,8 @@
 
         <div class="detail-description">
             <h2>{{ product.name }}</h2>
-            <h3>Category: {{ product.category }}</h3>
-            <p>Decription: {{ product.description|linebreaks }}</p>
+            <h3>Категория: {{ product.category }}</h3>
+            <p>Описание: {{ product.description|linebreaks }}</p>
             {% if product.discount %}
                 <div class="cart-discount d-flex gap-2">
                     <p class="line">{{ product.price }} р.</p>
