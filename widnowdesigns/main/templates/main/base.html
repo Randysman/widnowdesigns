@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
+<div class="wrapper">
     <header class="header sticky-top">
         <div class="header-container d-flex">
             <navbar class="header-nav pt-4">
@@ -58,11 +59,31 @@
             </div>
         </div>
     </header>
-    <div class="container">
-        {% block content %}
-        {% endblock content %}
+    <main class="main">
+        <div class="container">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </main>
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <a href="/">МАГАЗИН</a>
+                <a href="/">О КОМПАНИИ</a>
+            </div>
+            <div class="footer-column center">
+                <a href="/"><img src="{% static 'img/Pexay.png' %}" alt="" class=""></a>
+                <p>Оконные кострукции Pexay: качество,</p>
+                <p>инновации, надежность</p>
+                <p>© 2025</p>
+            </div>
+            <div class="footer-column">
+                <p>+7 123 456-78-90</p>
+                <p>info@okna-company.ru</p>
+            </div>
+        </div>
     </div>
-
+</div>
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
