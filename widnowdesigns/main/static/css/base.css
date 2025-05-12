@@ -816,8 +816,9 @@ c-quantity-form input {
 .footer {
     position: relative;
     width: 100%;
-    height: 50px;
+    height: 200px;
     background-color: #fff;
+    border: 1px solid #00000034;
 }
 
 .footer-container {
