@@ -857,3 +857,8 @@ c-quantity-form input {
 .footer-column p {
   margin: 8px 0;
 }
+
+.reset-password {
+    height: 500px;
+    margin-top: 150px;
+}
