@@ -1,6 +1,8 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 from .models import Product, Category
 from basket.forms import BasketAddProductForm
@@ -35,3 +37,8 @@ def product_list(request, category_slug=None):
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+
+    @action(methods=['get', 'post'], detail=True)
+    def category(self, request, pk):
+        cats = Category.objects.get(pk=pk)
+        return Response({'cats': cats.name})
