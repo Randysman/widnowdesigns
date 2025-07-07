@@ -6,6 +6,7 @@ from rest_framework.response import Response
 
 from .models import Product, Category
 from basket.forms import BasketAddProductForm
+from .permissions import IsAdminOrReadOnly
 from .serializers import ProductSerializer
 
 
@@ -37,6 +38,7 @@ def product_list(request, category_slug=None):
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = (IsAdminOrReadOnly, )
 
     @action(methods=['get', 'post'], detail=True)
     def category(self, request, pk):
