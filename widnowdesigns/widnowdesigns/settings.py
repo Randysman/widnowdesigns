@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'users',
     'orders',
     'payment',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,10 @@ STRIPE_SECRET_KEY = ''
 STRIPE_API_VERSION = '2022-08-01'
 
 STRIPE_WEBHOOK_SECRET = ''
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ]
+}

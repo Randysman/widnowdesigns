@@ -1,7 +1,10 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
+from rest_framework import viewsets
+
 from .models import Product, Category
 from basket.forms import BasketAddProductForm
+from .serializers import ProductSerializer
 
 
 def popular_list(request):
@@ -27,3 +30,8 @@ def product_list(request, category_slug=None):
         paginator = Paginator(products.filter(category=category), 5)
         current_page = paginator.page(int(page))
     return render(request, 'main/product/list.html', {'category': category, 'categories': categories, 'products': current_page, 'slug': category_slug})
+
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
