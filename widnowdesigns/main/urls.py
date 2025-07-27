@@ -3,12 +3,13 @@ from rest_framework import routers
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
 from . import views
-from .views import ProductViewSet
+from .views import ProductViewSet, CategoryViewSet
 
 app_name = 'main'
 
 router = routers.SimpleRouter()
 router.register(r'product', ProductViewSet)
+router.register(r'category', CategoryViewSet)
 
 
 urlpatterns = [

@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from .models import Product, Category
 from basket.forms import BasketAddProductForm
 from .permissions import IsAdminOrReadOnly
-from .serializers import ProductSerializer
+from .serializers import ProductSerializer, CategorySerializer
 
 
 def popular_list(request):
@@ -35,6 +35,9 @@ def product_list(request, category_slug=None):
     return render(request, 'main/product/list.html', {'category': category, 'categories': categories, 'products': current_page, 'slug': category_slug})
 
 
+#------------------------API------------------------
+
+
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
@@ -44,3 +47,9 @@ class ProductViewSet(viewsets.ModelViewSet):
     def category(self, request, pk):
         cats = Category.objects.get(pk=pk)
         return Response({'cats': cats.name})
+
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = (IsAdminOrReadOnly, )
