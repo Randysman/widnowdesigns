@@ -39,7 +39,7 @@ def basket_detail(request):
 
 
 class BasketDetail(APIView):
-    # permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
 
     def get(self, request):
         basket = Basket(request)
@@ -53,7 +53,7 @@ class BasketDetail(APIView):
 
 
 class BasketAddView(APIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request, product_id):
         basket = Basket(request)
